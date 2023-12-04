@@ -1,0 +1,16 @@
+FIRELINK ALTAR ->| KILN OF THE FIRST FLAME -> END
+^
+|
+FIRELINK SHRINE -> UNDEAD BURG ->| TOMB OF THE GIANTS -> (DUKE'S ARCHIVES -> CRYSTAL CAVE) -> LOST IZALITH
+|			            |
+v		            	v
+NEW LONDO RUINS	    UNDEAD PARISH
+|			            |
+v			            v
+_        CHAMBER <- ANOR LONDO
+THE ABYSS
+
+
+  N
+W   E
+  S
