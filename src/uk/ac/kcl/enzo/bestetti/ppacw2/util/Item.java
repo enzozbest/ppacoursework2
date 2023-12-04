@@ -3,13 +3,13 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
 /**
  * This class is part of the "White Souls" application.
  * <p>
- * It represents interactible things in the game - items.
- * Players can interact with items by picking the up, dropping them, or using them. Different items have different uses.
+ * It represents interactive things in the game - items.
+ * Players can interact with items by picking them up, dropping them, or using them. Different items have different uses.
  * For example, a sword can be used to deal damage, but a key can be used to open a door. This is implemented by the different
  * flags defined in this class.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class Item {
 
@@ -44,42 +44,42 @@ public class Item {
     //GETTERS
 
     /**
-     * @return item name
+     * @return item name.
      **/
     public String getName() {
         return name;
     }
 
     /**
-     * @return id
+     * @return id.
      **/
     public int getId() {
         return id;
     }
 
     /**
-     * @return weight
+     * @return weight.
      **/
     public double getWeight() {
         return weight;
     }
 
     /**
-     * @return durability
+     * @return durability.
      **/
     public int getDurability() {
         return durability;
     }
 
     /**
-     * @return consumable
+     * @return consumable.
      **/
     public boolean isUseable() {
         return isUseable;
     }
 
     /**
-     * @return isKey
+     * @return isKey.
      **/
     public boolean isKey() {
         return isKey;

@@ -14,7 +14,7 @@ import java.util.HashMap;
  * This class assigns what we mean by "use" to each item and when called performs said use.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class UseCommand implements Executable {
 
@@ -25,7 +25,7 @@ public class UseCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public UseCommand(Command command, Player player, HashMap<Integer, Room> rooms) {
         this.command = command;
@@ -70,7 +70,7 @@ public class UseCommand implements Executable {
     /**
      * Executes the behaviours of a given item when it is used.
      *
-     * @param item
+     * @param item to be used.
      **/
     private void useItem(Item item) {
         item.setDurability(item.getDurability() - 1);
@@ -101,10 +101,9 @@ public class UseCommand implements Executable {
             }
             case 200 -> {
                 player.updateMaxWeight();
-                System.out.println("The power of the Guardian Soul has granted you extra power.");
+                System.out.println("The power of the Guardian Soul has granted you extra strength.");
             }
         }
-
     }
 
     /**
@@ -119,5 +118,4 @@ public class UseCommand implements Executable {
             case 8 -> rooms.get(8).unlockRoom();//Opens Mineral Mines
         }
     }
-
 }

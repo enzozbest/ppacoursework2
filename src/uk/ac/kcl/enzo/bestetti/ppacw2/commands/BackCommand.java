@@ -13,13 +13,13 @@ import java.util.NoSuchElementException;
  * The main responsibility of this class is to move the player back one room.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class BackCommand implements Executable {
 
     //ATTRIBUTES
     private Player player;
-    private ArrayLifoStack accessedRooms;
+    private ArrayLifoStack<Room> accessedRooms;
     //ATTRIBUTES
 
     /**
@@ -32,13 +32,14 @@ public class BackCommand implements Executable {
 
     /**
      * Takes the player to the room they were in before being in the current room.
-     * An ArrayList keeps track of the rooms that were visited (in order).
-     * If the player ends up in the Magic Transporter room, the ArrayList is cleared and the player cannot go back anywhere.
+     * A last-in-first-out stack keeps track of the rooms that were visited (in order). The command moves the player
+     * to the second room on the top of the stack (the one at the top is always the current room).
+     * If the player ends up in the Magic Transporter room, the stack is cleared and the player cannot go back anywhere.
      *
-     * @throws IndexOutOfBoundsException when the player has no rooms to go back to. This is handled here and the player is informed.
+     * @throws NoSuchElementException when the player has no rooms to go back to. This is handled here and the player is informed.
      **/
     @Override
-    public void execute() throws ArrayIndexOutOfBoundsException {
+    public void execute() throws NoSuchElementException {
         try {
             if (player.getCurrentRoom().hasBoss() && player.getCurrentRoom().getRoomBoss().isBossAlive()) {
                 System.out.println("You cannot escape!");
@@ -48,7 +49,7 @@ public class BackCommand implements Executable {
             accessedRooms.pop();
 
             //Moves the player back one room
-            player.setCurrentRoom((Room) accessedRooms.peek());
+            player.setCurrentRoom(accessedRooms.peek());
             assert player.getCurrentRoom() != null; //following lines of code rely on getCurrentRoom() not returning a null value.
             System.out.println(player.getCurrentRoom().getLongDescription());
         } catch (NoSuchElementException e) {

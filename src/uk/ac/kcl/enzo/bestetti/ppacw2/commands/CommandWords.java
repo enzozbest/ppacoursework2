@@ -8,7 +8,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
  * It is used to recognise commands as they are typed in.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  */
 
 public enum CommandWords {
@@ -17,10 +17,16 @@ public enum CommandWords {
     INVENTORY("inventory"), REPLENISH("replenish"), MAP("map"), FEED("feed"), UNKNOWN(null);
     private String commandString;
 
+    /**
+     * Initialise all command words with a string to represent them.
+     **/
     CommandWords(String commandWord) {
         this.commandString = commandWord;
     }
 
+    /**
+     * @return a string representing the command word of a command.
+     **/
     public String getCommandString() {
         return commandString;
     }

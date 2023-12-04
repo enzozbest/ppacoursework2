@@ -10,10 +10,10 @@ import java.util.Locale;
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to display an NPC's dialogue when the player interacts with them.
- * Should the NPC have a giveable item, the item will also be given to the player
+ * Should the NPC have a giveable item, the item will also be given to the player.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class TalkCommand implements Executable {
 
@@ -24,7 +24,7 @@ public class TalkCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public TalkCommand(Command command, Player player, CharacterHandler characterHandler) {
         this.command = command;

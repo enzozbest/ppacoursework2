@@ -6,10 +6,13 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.base;
  * An instance of the game is created and the play() method called to initiate the gameplay.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class GameMain {
 
+    /**
+     * Calling this method will initiate the gameplay.
+     **/
     public static void main(String[] args) {
         WhiteSouls whiteSouls = new WhiteSouls();
         whiteSouls.play();

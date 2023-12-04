@@ -9,7 +9,7 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
  * The main responsibility of this class is to print out the player's current inventory.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class InventoryCommand implements Executable {
 

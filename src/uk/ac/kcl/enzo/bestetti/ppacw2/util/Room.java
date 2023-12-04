@@ -17,7 +17,7 @@ import java.util.Set;
  * stores a reference to the neighboring room.
  *
  * @author Michael Kölling and David J. Barnes, Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 
 public class Room {
@@ -30,7 +30,7 @@ public class Room {
     private Boss roomBoss;
     private boolean hasBoss;
     private boolean hasNPC;
-    private HashMap<String, Room> exits;        // stores exits of this room.
+    private HashMap<String, Room> exits;
     private HashMap<String, Item> items;
     private HashMap<String, Character> people;
     //ATTRIBUTES
@@ -55,13 +55,13 @@ public class Room {
      * Adds a given set of items to a room.
      * Items are passed as a string. The regex "," separates the different attributes of a single item.
      * The regex " : " separates the different items.
-     * This method allows multiple items to be passes at construction as a single parameter. There is no upper or lower bound
+     * This method allows multiple items to be passed at construction as a single parameter. There is no upper or lower bound
      * on the number of items a room can have.
      *
      * @param stringItems in the specified format.
      **/
     public void addItems(String stringItems) {
-        if (stringItems.isEmpty()) {
+        if (stringItems == null || stringItems.isEmpty()) {
             return;
         }
         String[] fullItems = stringItems.split(" : ");
@@ -75,21 +75,21 @@ public class Room {
     //GETTERS
 
     /**
-     * @return room name
+     * @return room name.
      **/
     public String getName() {
         return this.name;
     }
 
     /**
-     * @return room id
+     * @return room id.
      **/
     public int getId() {
         return this.id;
     }
 
     /**
-     * @return isLocked
+     * @return isLocked.
      **/
     public boolean isLocked() {
         return this.isLocked;
@@ -97,16 +97,17 @@ public class Room {
 
     /**
      * Return a description of the room in the form:
-     * You are in the kitchen.
+     * You are in The Desert
      * Exits: north west
      *
-     * @return A long description of this room
+     * @return A long description of this room.
      **/
     public String getLongDescription() {
         if (items.isEmpty()) {
             if (people.isEmpty()) {
                 return description + ".\n" + getExitString() + ".\n" + "There are no items in this room" + ".\n" + "There's no one in the room";
             }
+            return description + ".\n" + getExitString() + ".\n" + "There are no items in this room" + ".\n" + getCharacterString();
         }
         if (people.isEmpty()) {
             return description + ".\n" + getExitString() + ".\n" + getItemString() + ".\n" + "There's no one in the room";
@@ -168,15 +169,15 @@ public class Room {
     }
 
     /**
-     * @return items
+     * @return the items in the room ("room inventory").
      **/
     public HashMap<String, Item> getItems() {
         return items;
     }
 
     /**
-     * @return room boss if the room has a boss
-     * @return null otherwise
+     * @return room boss if the room has a boss.
+     * null otherwise.
      **/
     public Boss getRoomBoss() {
         if (hasBoss) {
@@ -193,14 +194,14 @@ public class Room {
     }
 
     /**
-     * @return a list of all NPCs present in a room
+     * @return a map of all NPCs present in a room.
      **/
     public HashMap<String, Character> getPeople() {
         return this.people;
     }
 
     /**
-     * @return hasBoss
+     * @return true if there is a boss in the room, false otherwise.
      **/
     public boolean hasBoss() {
         return this.hasBoss;
@@ -210,7 +211,7 @@ public class Room {
     //SETTERS
 
     /**
-     * Used to set the isLocked flag of a room to false
+     * Used to set the isLocked flag of a room to false.
      **/
     public void unlockRoom() {
         this.isLocked = false;
@@ -227,7 +228,7 @@ public class Room {
     }
 
     /**
-     * Adds a specified Boss to a room
+     * Adds the specified Boss to a room.
      *
      * @param boss
      **/
@@ -237,7 +238,7 @@ public class Room {
     }
 
     /**
-     * Add a new NPC to a room
+     * Add a new NPC to a room.
      *
      * @param character
      **/
@@ -247,7 +248,7 @@ public class Room {
     }
 
     /**
-     * Remove all characters from the room
+     * Remove all characters from the room.
      **/
     public void removeCharacters() {
         Set<String> characterNames = people.keySet();

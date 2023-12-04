@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 /**
  * This class is part of the "White Souls" application.
- * "White Souls" is a very simple, text based adventure game.
+ * "White Souls" is a very simple text based adventure game.
  * Users can walk around some scenery, interact with items, interact with NPCs, and fight enemies.
  * <p>
  * This class implements the high-level game logic (e.g. processing command requests) and stores some information which can be used by other classes
@@ -20,7 +20,7 @@ import java.util.HashMap;
  * This is the Client class of the Command Pattern Design implemented in this project.
  *
  * @author Michael Kölling, David J. Barnes, Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 
 public class WhiteSouls {
@@ -41,12 +41,11 @@ public class WhiteSouls {
         Initialiser initialiser = new Initialiser();
         initialiser.init(); //Initialise the Game Elements
 
-        //Store some information that other classes may require to access Game Elements.
+        //Store some information that other classes may require to access game elements.
         this.roomHandler = initialiser.getRoomHandler();
         this.rooms = roomHandler.getRooms();
         this.player = roomHandler.getInitialiser().getPlayer();
         this.characterHandler = new CharacterHandler(roomHandler);
-
         this.parser = new Parser();
     }
 
@@ -55,7 +54,8 @@ public class WhiteSouls {
      **/
     public void play() {
         player.setCurrentRoom(rooms.get(0)); //Start game at Waterlink Well
-        roomHandler.getAccessedRooms().add(player.getCurrentRoom());
+        roomHandler.getAccessedRooms().push(player.getCurrentRoom());
+
         printWelcome();
 
         // Enter the main command loop.  Here we repeatedly read commands and
@@ -111,7 +111,7 @@ public class WhiteSouls {
 
     /**
      * Print out some help information.
-     * available command words.
+     * List all available command words.
      **/
     private void printHelp() {
         System.out.println("You are lost. Are you are alone? You wonder... If you only had a map, this would make your life so much easier.");
@@ -119,12 +119,14 @@ public class WhiteSouls {
         System.out.println("Have you tried talking to people around you? They may be more helpful than you think.");
         System.out.println();
         System.out.println("In any case, your command words are:");
+
         parser.showCommands();
     }
 
     /**
      * Print out the opening message for the player.
-     * 1s delays are introduced between sentences to make the game more interactive and easier to play.
+     * 1s delays are introduced between sentences to make the game more interactive and easier to play. This allows more time for
+     * the player to read the messages.
      **/
     private void printWelcome() {
         try {

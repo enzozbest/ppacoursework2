@@ -11,7 +11,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
  * If the player issues a counter-attack, this thread will be interrupted.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class CountdownTimer implements Runnable {
 
@@ -20,7 +20,7 @@ public class CountdownTimer implements Runnable {
     //ATTRIBUTES
 
     /**
-     * Initialise fields.
+     * Initialise class fields.
      **/
     public CountdownTimer(int duration) {
         this.countDown = duration;
@@ -46,7 +46,7 @@ public class CountdownTimer implements Runnable {
      * Exits the game - the player has lost.
      **/
     public void endGameLoss() {
-        System.out.println("You Died! " + " has bested you and all your progress has been lost"); //TODO add boss name
+        System.out.println("You Died! All your progress has been lost");
         System.out.println("Better luck next time.");
         System.out.println("Thank you for playing White Souls! We hope to see you again soon");
         System.exit(0);

@@ -8,10 +8,10 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.Item;
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to remove an item from the player's inventory and add it to the current room.
- * In addition, it also prints out the updated inventory once an item has been removed.
+ * In addition, it prints out the updated inventory once an item has been removed.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class DropCommand implements Executable {
 
@@ -21,7 +21,7 @@ public class DropCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public DropCommand(Command command, Player player) {
         this.command = command;

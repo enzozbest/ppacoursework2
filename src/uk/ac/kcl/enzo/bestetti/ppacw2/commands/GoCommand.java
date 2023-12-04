@@ -10,10 +10,10 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to move the player from one room to another.
- * In addition, it adds all accessed rooms to an ArrayList which is used for the "back" command.
+ * In addition, it adds all accessed rooms to a last-in-first-out stack which is used for the "back" command.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class GoCommand implements Executable {
 
@@ -22,11 +22,11 @@ public class GoCommand implements Executable {
     private Command command;
     private RoomHandler handler;
 
-    private ArrayLifoStack accessedRooms;
+    private ArrayLifoStack<Room> accessedRooms;
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public GoCommand(Command command, RoomHandler roomHandler) {
         this.handler = roomHandler;
@@ -76,7 +76,6 @@ public class GoCommand implements Executable {
             boolean clear = handler.roomCheck();
             if (clear) {
                 accessedRooms.clear();
-                System.out.println("NEW ROOM ADDED TO THE STACK " + player.getCurrentRoom().getName());
                 accessedRooms.push(player.getCurrentRoom());
             }
         }

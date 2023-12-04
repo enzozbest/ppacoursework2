@@ -8,8 +8,8 @@ import java.util.Scanner;
  * This class is part of the "White Souls" application.
  * "White Souls" is a very simple, text based adventure game.
  * <p>
- * This parser reads user input and tries to interpret it as an "Adventure"
- * command. Every time it is called it reads a line from the terminal and
+ * This parser reads user input and tries to interpret it as a command.
+ * Every time it is called it reads a line from the terminal and
  * tries to interpret the line as a two string command. It returns the command
  * as an object of class Command.
  * <p>
@@ -18,7 +18,7 @@ import java.util.Scanner;
  * returns a command object that is marked as an unknown command.
  *
  * @author Michael Kölling and David J. Barnes, Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class Parser {
 
