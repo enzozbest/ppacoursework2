@@ -1,10 +1,11 @@
 package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
 
 import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
+import uk.ac.kcl.enzo.bestetti.ppacw2.util.ArrayLifoStack;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.Room;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
 
-import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 /**
  * This class is part of the "White Souls" application.
@@ -18,7 +19,7 @@ public class BackCommand implements Executable {
 
     //ATTRIBUTES
     private Player player;
-    private ArrayList<Room> accessedRooms;
+    private ArrayLifoStack accessedRooms;
     //ATTRIBUTES
 
     /**
@@ -44,16 +45,16 @@ public class BackCommand implements Executable {
                 return;
             }
             //Remove the last element of the ArrayList (the room the player is currently in)
-            accessedRooms.remove(accessedRooms.size() - 1);
+            accessedRooms.pop();
 
             //Moves the player back one room
-            player.setCurrentRoom(accessedRooms.get(accessedRooms.size() - 1));
+            player.setCurrentRoom((Room) accessedRooms.peek());
             assert player.getCurrentRoom() != null; //following lines of code rely on getCurrentRoom() not returning a null value.
             System.out.println(player.getCurrentRoom().getLongDescription());
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NoSuchElementException e) {
             System.out.println(player.getCurrentRoom().getLongDescription());
             System.out.println("You have not accessed any rooms to go back to!");
-            accessedRooms.add(player.getCurrentRoom());
+            accessedRooms.push(player.getCurrentRoom());
         }
     }
 }

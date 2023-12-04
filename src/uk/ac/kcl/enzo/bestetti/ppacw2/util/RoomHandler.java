@@ -3,7 +3,6 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
 import uk.ac.kcl.enzo.bestetti.ppacw2.base.Initialiser;
 import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
@@ -29,7 +28,7 @@ public class RoomHandler {
     private boolean lordBucket;
     private BossHandler bossHandler;
     private Initialiser initialiser;
-    private ArrayList<Room> accessedRooms = new ArrayList<>();
+    private ArrayLifoStack<Room> accessedRooms = new ArrayLifoStack();
     //ATTRIBUTES
 
     /**
@@ -232,17 +231,17 @@ public class RoomHandler {
     }
 
     /**
-     * @return the list of rooms accessed by the player
-     **/
-    public ArrayList<Room> getAccessedRooms() {
-        return accessedRooms;
-    }
-
-    /**
      * @return the BossHandler for a boss fight.
      **/
     public BossHandler getBossHandler() {
         return bossHandler;
+    }
+
+    /**
+     * @return the global list of accesed rooms as a last-in-first-out stack.
+     **/
+    public ArrayLifoStack<Room> getAccessedRooms() {
+        return accessedRooms;
     }
     //GETTERS
 

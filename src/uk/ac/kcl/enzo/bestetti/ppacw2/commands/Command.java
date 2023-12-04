@@ -35,9 +35,13 @@ public class Command {
     public Command(String firstWord, String secondWord) {
         if (firstWord != null) {
             this.commandWord = firstWord.toLowerCase();
+        } else {
+            commandWord = commandWord;
         }
         if (secondWord != null) {
             this.secondWord = secondWord.toLowerCase();
+        } else {
+            secondWord = secondWord;
         }
 
     }

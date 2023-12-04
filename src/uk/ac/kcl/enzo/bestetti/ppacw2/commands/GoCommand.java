@@ -1,10 +1,9 @@
 package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
 
 import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
+import uk.ac.kcl.enzo.bestetti.ppacw2.util.ArrayLifoStack;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.Room;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
-
-import java.util.ArrayList;
 
 /**
  * This class is part of the "White Souls" application.
@@ -21,8 +20,9 @@ public class GoCommand implements Executable {
     //ATTRIBUTES
     private Player player;
     private Command command;
-    private ArrayList<Room> accessedRooms;
     private RoomHandler handler;
+
+    private ArrayLifoStack accessedRooms;
     //ATTRIBUTES
 
     /**
@@ -72,11 +72,12 @@ public class GoCommand implements Executable {
             handler.moveCharacters(nextRoom.getId());
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
-            accessedRooms.add(accessedRooms.size(), player.getCurrentRoom());
+            accessedRooms.push(player.getCurrentRoom());
             boolean clear = handler.roomCheck();
             if (clear) {
                 accessedRooms.clear();
-                accessedRooms.add(player.getCurrentRoom());
+                System.out.println("NEW ROOM ADDED TO THE STACK " + player.getCurrentRoom().getName());
+                accessedRooms.push(player.getCurrentRoom());
             }
         }
     }
