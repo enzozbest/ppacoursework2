@@ -10,10 +10,10 @@ import java.util.Set;
  * This class is part of the "White Souls" application.
  * <p>
  * It represents a Player object and holds all the play-time data related to the user playing the game.
- * Only one instance of this class can exist per gameplay. This game does not support multiple players.
+ * Only one instance of this class should exist per gameplay. This game does not support multiple players.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public final class Player {
 
@@ -26,60 +26,60 @@ public final class Player {
     //ATTRIBUTES
 
     /**
-     * @return current room
+     * @return current room the player is in.
      **/
     public Room getCurrentRoom() {
         return this.currentRoom;
     }
 
     /**
-     * @return current weight
+     * @return current weight the player is carrying.
      **/
     public double getCurrentWeight() {
         return this.currentWeight;
     }
 
     /**
-     * @return maximum weight
+     * @return maximum weight the player can carry.
      **/
     public double getMaxWeight() {
         return this.maxWeight;
     }
 
     /**
-     * @return wearable
+     * @return wearable currently equipped by the player.
      **/
     public Item getWearable() {
         return this.wearable;
     }
 
     /**
-     * @return inventory
+     * @return current player inventory.
      **/
     public HashMap<String, Item> getInventory() {
         return this.inventory;
     }
 
     /**
-     * Set the player's current wearable item (unequips all other wearables)
+     * Set the player's current wearable item.
      *
-     * @param item
+     * @param item to equip
      **/
     public void wear(Item item) {
         this.wearable = item;
     }
 
     /**
-     * Move the player to a specified room
+     * Move the player to a specified room.
      *
-     * @param currentRoom
+     * @param currentRoom meaning the room the player is moving into.
      **/
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
 
     /**
-     * Update the current weight to a specified value
+     * Update the current weight to a specified value.
      *
      * @param currentWeight
      **/

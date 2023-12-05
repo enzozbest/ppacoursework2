@@ -5,11 +5,13 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
 
 /**
  * This class is part of the "White Souls" application.
+ * <p>
  * It represents an action that can be executed by the CommandExecutor class.
- * The main responsibility of this class is to issue a player attack on a boss and a boss attack on a player if the boss is still alive after a player attack.
+ * The main responsibility of this class is to issue a player attack on a boss and a boss attack
+ * on a player if the boss is still alive after a player attack.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class AttackCommand implements Executable {
 
@@ -19,7 +21,7 @@ public class AttackCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public AttackCommand(RoomHandler roomHandler) {
         this.roomHandler = roomHandler;
@@ -27,9 +29,9 @@ public class AttackCommand implements Executable {
     }
 
     /**
-     * Attack an enenmy.
-     * If the player has an attack-item in their iventory, then the countdown challenge issued by the boss is interrupted.
-     * Otherwise it will cancel the attack attempt and the boss attack is allowed to carry on.
+     * Attack an enemy.
+     * If the player has an attack item in their inventory, then the time challenge issued by the boss is interrupted.
+     * Otherwise, it will cancel the player attack attempt and the boss attack is allowed to carry on.
      **/
     @Override
     public void execute() {

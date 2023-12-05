@@ -11,19 +11,21 @@ import java.util.HashMap;
 
 /**
  * This class is part of the "White Souls" application.
- * This class is responsible for creating all the rooms, items, bosses, and NPCs in the game.
- * All items, bosses, and NPCs are added to their initial rooms.
+ * <p>
+ * This class is responsible for creating all rooms, items, bosses, and NPCs in the game.
+ * All items, bosses, and NPCs are added to their respective initial rooms.
  * The Initialiser class also creates the Player object, as well as the global list of rooms.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class Initialiser {
 
-    private Room waterlinkWell, chamberOfThePrincess, waterlinkAltar, source, drymanBurg, aridChurch, drenchedOasis, newOasisRemains, depthsWell, princesFiles, mineralMines, scaldingHydrolith, theDesert;
-
 
     //ATTRIBUTES
+    private Room waterlinkWell, chamberOfThePrincess, waterlinkAltar, source, drymanBurg,
+            aridChurch, drenchedOasis, newOasisRemains, depthsWell, princesFiles, mineralMines,
+            scaldingHydrolith, theDesert;
     private HashMap<Integer, Room> rooms = new HashMap<>();
     private final Player player = new Player();
     private RoomHandler roomHandler;
@@ -43,7 +45,7 @@ public class Initialiser {
     private void createRooms() {
         waterlinkWell = new Room("Waterlink Well", 0, "Waterlink Well - Start of the Chosen Dryman's journey", false, "White Soul,0,0.25,1,true,false : Sword,1,0.5,100,false,false");
         rooms.put(0, waterlinkWell);
-        drymanBurg = new Room("Dryman Burg", 1, "Dryman Burg - Make your way through to the Drenched Oasis.", false, "Merchant Table,1,1000,0,false,false");
+        drymanBurg = new Room("Dryman Burg", 1, "Dryman Burg - Make your way through to the Drenched Oasis.", false, null);
         rooms.put(1, drymanBurg);
         aridChurch = new Room("Arid Church", 2, "Arid Church - Defeat the Kraken to gain passage to Drenched Oasis!", false, "Kraken Tail,3,1.0,500,true,false");
         rooms.put(2, aridChurch);
@@ -65,12 +67,12 @@ public class Initialiser {
         rooms.put(10, waterlinkAltar);
         source = new Room("Source of the First Droplet", 11, "Source of the First Droplet - The final destination. Kill Lord Alun and replenish the First Droplet", true, "Water,13,0.25,1,true,false");
         rooms.put(11, source);
-        chamberOfThePrincess = new Room("Chamber of the Princess", 12, "The princess casts a spell upon you. You begin to feel dizzy and suddenly everything turns black... You are moving, you have been teletransported.", false, "Transporter,20,100000,100000,false,false");
+        chamberOfThePrincess = new Room("Chamber of the Princess", 12, "The princess casts a spell upon you. You begin to feel dizzy and suddenly everything turns black... You are moving, you have been teleported.", false, "Transporter,20,100000,100000,false,false");
         rooms.put(12, chamberOfThePrincess);
     }
 
     /**
-     * Link the exits of the game rooms together
+     * Link the exits of the game rooms together.
      **/
     private void linkExits() {
         //Waterlink Well exits
@@ -126,18 +128,19 @@ public class Initialiser {
 
     /**
      * Add characters to the rooms in which they are located at the beginning of the game.
+     * Character dialogue is set at construction.
      **/
     private void addCharacters() {
         //Sad Soldier at Waterlink Well
-        waterlinkWell.addCharacter(new Character("Sad Soldier", 10, new Item("Map", 400, 0, 1000, false, false), "Welcome to the realm of White Souls. : " +
+        waterlinkWell.addCharacter(new Character("Sad Soldier", new Item("Map", 400, 0, 1000, false, false), "Welcome to the realm of White Souls. : " +
                 "I am the Sad Soldier, who could not fulfill their duty as a once Chosen Dryman. : " +
-                "Your task here is nothing but simple. Many challenges lie ahead. Here, have this map to help you find your way. : " +
+                "Your task here is not simple, and many challenges lie ahead. Here, have this map to help you find your way. : " +
                 "Locked rooms are shown in red. And you can always see where you are by finding the room coloured green. : " +
                 "Worry not, Chosen Dryman, the map does not weigh anything. : " +
                 "Just remember not to forget your sword... Like I did :(", "0 : 1 : 6 : 8 : 10 : 5 : 2 : 7 : 3 : 9 : 4 : 11"));
 
         //Long Lizard at Waterlink Altar
-        waterlinkAltar.addCharacter(new Character("Long Lizard", 100, new Item("Lord Alun's Ring", 700, 0.75, 10, false, false), "Well hello there! You don't look like you have lost your mind yet. : " +
+        waterlinkAltar.addCharacter(new Character("Long Lizard", new Item("Lord Alun's Ring", 700, 0.75, 10, false, false), "Well hello there! You don't look like you have lost your mind yet. : " +
                 "I am the Long Lizard. I have existed for as long as this world, and I have seen... things. : " +
                 "I will now reveal to you, Chosen Dryman, your fate. : " +
                 "You must succeed Lord Alun. Only then will your curse be cured. Only when you defeat him and replenish the first droplet will you truly be free. : " +
@@ -145,11 +148,12 @@ public class Initialiser {
                 "These are the Yellow Soul, the Black Soul, the Crystalised Soul, and the Orange Soul. : " +
                 "Once the Lordcuket is satiated, the gates will open and you will be able to confront your fate. : " +
                 "You will also need this. This ring belonged to Lord Alun himself. Take it. You must not lose it, for without it you will stand no chance against him. : " +
-                "Now be on your way. Maketh pilgramage to the Drenched Oasis in order to obtain the Lordbucket. : " +
+                "Also I'd pick up that lantern over there if I were you. You know, you might find yourself deep down below and you could use it. : " +
+                "Now be on your way. Maketh pilgrimage to the Drenched Oasis in order to obtain the Lordbucket. : " +
                 "And DO NOT forget your sword. There are enemies at every turn. He he he he...", "6 : 8 : 10 : 2 : 3 : 1 : 0 : 7 : 4 : 5 : 7 : 9"));
 
         //Prince Irving at Prince's Files
-        princesFiles.addCharacter(new Character("Prince Irving", 10, null, "Goodness me! I can't remember when I last saw someone in these files. : " +
+        princesFiles.addCharacter(new Character("Prince Irving", null, "Goodness me! I can't remember when I last saw someone in these files. : " +
                 "Pleasure, good Sir. My name is Prince Irving, at your service. : " +
                 "I take it you are the unlucky soul who got chosen this time, to try to cure our curse. : " +
                 "Dear, oh dear, I have seen many before you. None succeeded. : " +
@@ -163,7 +167,7 @@ public class Initialiser {
     }
 
     /**
-     * Add bosses to their arenas.
+     * Add bosses to their respective arenas.
      **/
     private void addBosses() {
         //Giant Dry Cactus at the Desert

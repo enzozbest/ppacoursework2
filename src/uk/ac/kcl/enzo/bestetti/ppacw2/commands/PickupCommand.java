@@ -11,7 +11,7 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.Item;
  * In addition, it also prints out the updated inventory once an item has been added.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class PickupCommand implements Executable {
 
@@ -21,7 +21,7 @@ public class PickupCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public PickupCommand(Command command, Player player) {
         this.command = command;

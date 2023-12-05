@@ -1,32 +1,32 @@
 package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
 
 import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
+import uk.ac.kcl.enzo.bestetti.ppacw2.util.ArrayLifoStack;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.Room;
 import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
-
-import java.util.ArrayList;
 
 /**
  * This class is part of the "White Souls" application.
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to move the player from one room to another.
- * In addition, it adds all accessed rooms to an ArrayList which is used for the "back" command.
+ * In addition, it adds all accessed rooms to a last-in-first-out stack which is used for the "back" command.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class GoCommand implements Executable {
 
     //ATTRIBUTES
     private Player player;
     private Command command;
-    private ArrayList<Room> accessedRooms;
     private RoomHandler handler;
+
+    private ArrayLifoStack<Room> accessedRooms;
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public GoCommand(Command command, RoomHandler roomHandler) {
         this.handler = roomHandler;
@@ -72,11 +72,11 @@ public class GoCommand implements Executable {
             handler.moveCharacters(nextRoom.getId());
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
-            accessedRooms.add(accessedRooms.size(), player.getCurrentRoom());
+            accessedRooms.push(player.getCurrentRoom());
             boolean clear = handler.roomCheck();
             if (clear) {
                 accessedRooms.clear();
-                accessedRooms.add(player.getCurrentRoom());
+                accessedRooms.push(player.getCurrentRoom());
             }
         }
     }

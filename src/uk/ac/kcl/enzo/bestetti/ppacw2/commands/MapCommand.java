@@ -15,7 +15,7 @@ import java.util.Set;
  * In addition, it prepares all the elements of the map for displaying, e.g. colouring room names.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class MapCommand implements Executable {
 
@@ -101,5 +101,4 @@ public class MapCommand implements Executable {
         }
         return mapElements;
     }
-
 }

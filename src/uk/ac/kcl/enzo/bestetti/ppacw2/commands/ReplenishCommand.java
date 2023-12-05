@@ -11,7 +11,7 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
  * This class will end the game if the command is performed fully and register a player win.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class ReplenishCommand implements Executable {
 
@@ -21,7 +21,7 @@ public class ReplenishCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public ReplenishCommand(Command command, Player player) {
         this.command = command;

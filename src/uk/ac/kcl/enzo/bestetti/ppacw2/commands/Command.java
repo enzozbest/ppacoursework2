@@ -9,7 +9,9 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
  * string (for example, if the command was "take map", then the two strings
  * obviously are "take" and "map").
  * <p>
- * The way this is used is: Commands are already checked for being valid
+ * The way this is used is:
+ * <p>
+ * Commands are already checked for being valid
  * command words. If the user entered an invalid command (a word that is not
  * known) then the command word is <null>.
  * <p>
@@ -17,7 +19,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
  * <p>
  *
  * @author Michael Kölling, David J. Barnes, Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 
 public class Command {
@@ -35,9 +37,13 @@ public class Command {
     public Command(String firstWord, String secondWord) {
         if (firstWord != null) {
             this.commandWord = firstWord.toLowerCase();
+        } else {
+            commandWord = commandWord;
         }
         if (secondWord != null) {
             this.secondWord = secondWord.toLowerCase();
+        } else {
+            secondWord = secondWord;
         }
 
     }
