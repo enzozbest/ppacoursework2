@@ -5,6 +5,7 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
 
 /**
  * This class is part of the "White Souls" application.
+ * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to issue a player attack on a boss and a boss attack
  * on a player if the boss is still alive after a player attack.
@@ -20,7 +21,7 @@ public class AttackCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public AttackCommand(RoomHandler roomHandler) {
         this.roomHandler = roomHandler;

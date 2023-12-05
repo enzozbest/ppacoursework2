@@ -39,7 +39,7 @@ public class QuitCommand implements Executable {
     }
 
     /***
-     * @return true, if this command quits the game, false otherwise.
+     * @return true if this command quits the game, false otherwise.
      **/
     public boolean quit() {
         return wantToQuit;

@@ -7,7 +7,7 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.Item;
  * This class is part of the "White Souls" application.
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
- * The main responsibility of this class is to remove an item from the player's inventory and add it to the current room.
+ * The main responsibility of this class is to remove an item from the player's inventory and add it to the current room's inventory.
  * In addition, it prints out the updated inventory once an item has been removed.
  *
  * @author Enzo Bestetti(K23011872)

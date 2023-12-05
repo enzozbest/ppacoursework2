@@ -15,7 +15,7 @@ import java.util.Set;
  * An instance of the global list of rooms can be obtained from this handler, as well as an instance of the player (this room uses the Initialiser,
  * which creates the player object).
  * <p>
- * It also keeps track of the rooms accessed by the player, which is implemented as an ArrayList.
+ * It also keeps track of the rooms accessed by the player, which is implemented as a last-in-first-out stack.
  * Other classes use this to implement some game features, e.g. the "back" command
  *
  * @author Enzo Bestetti(K23011872)
@@ -182,7 +182,7 @@ public class RoomHandler {
 
     /**
      * Change the isLocked flag of all rooms (apart from Source of the First Droplet) to true.
-     * Allow the player to visit all rooms
+     * Allow the player to visit all rooms but the Source of the First Droplet and Mineral Mines.
      **/
     private void unlockGoldgates() {
         Set<Integer> keys = initialiser.getRooms().keySet();
@@ -208,7 +208,7 @@ public class RoomHandler {
     /**
      * Check whether the Lordbucket has been placed.
      *
-     * @return lordbucket
+     * @return tue if the Lordbucket has been placed, false otherwise.
      **/
     public boolean isLordbucket() {
         return lordBucket;

@@ -18,14 +18,14 @@ public class InventoryCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public InventoryCommand(Player player) {
         this.player = player;
     }
 
     /**
-     * Print out the player's current inventory
+     * Print out the player's current inventory.
      **/
     @Override
     public void execute() {

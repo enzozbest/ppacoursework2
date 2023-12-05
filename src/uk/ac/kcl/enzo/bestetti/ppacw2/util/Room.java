@@ -89,7 +89,7 @@ public class Room {
     }
 
     /**
-     * @return isLocked.
+     * @return true if the room is locked, false otherwise.
      **/
     public boolean isLocked() {
         return this.isLocked;
@@ -187,7 +187,7 @@ public class Room {
     }
 
     /**
-     * @return whether the room has an NPC.
+     * @return true if the room has an NPC, false otherwise.
      **/
     public boolean hasNPC() {
         return this.hasNPC;

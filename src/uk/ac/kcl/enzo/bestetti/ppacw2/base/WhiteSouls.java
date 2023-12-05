@@ -133,7 +133,7 @@ public class WhiteSouls {
             System.out.println();
             System.out.println("Welcome to White Souls, Chosen Dryman!");
             Thread.sleep(1000);
-            System.out.println("Your journey begins here, at Waterlink Well. This is the last place water has been seen flowing, many years past.");
+            System.out.println("Your journey begins here, at Waterlink Well. This is the last place water has been seen flowing, many years ago.");
             Thread.sleep(1000);
             System.out.println("All humans have been cursed with the Dryman's curse as a punishment from the gods for abusing the Water. Humans who lose their purpose dry out; they become dusty and crazy.");
             Thread.sleep(1000);

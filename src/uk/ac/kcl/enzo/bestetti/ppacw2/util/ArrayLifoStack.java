@@ -11,12 +11,12 @@ import java.util.Iterator;
  * This class also represents a collection, as LifoStack<E> extends Collection<E>.
  * <p>
  * The methods of the interface are implemented in this class via the Deque<E> interface, which creates a list of items which
- * accepts modifications from either end. The interface methods essentially rename the Deque methods to make it more "stacK-like".
+ * accepts modifications from either end. The interface methods essentially rename the Deque methods to make it more "stack-like".
  * <p>
- * Methods from the Collection<E> interface are inherited here, but no changes are made to their implementation.
- * Objects of this class are meant to behave like a stack, so only peek(), pop(), and push(), and clear() should be used.
+ * Methods from the Collection<E> interface are inherited here, but few changes are made to their implementation.
+ * Objects of this class are meant to behave like a stack, so only peek(), pop(), push(), and clear() should be used.
  *
- * @author Enzo Bestetti
+ * @author Enzo Bestetti(K23011872)
  * @version 2023.12.04
  **/
 public class ArrayLifoStack<E> implements LifoStack<E> {

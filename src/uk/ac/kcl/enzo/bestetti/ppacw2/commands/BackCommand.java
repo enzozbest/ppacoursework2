@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 /**
  * This class is part of the "White Souls" application.
+ * <p>
  * It represents an action that can be executed by the CommandExecutor class.
  * The main responsibility of this class is to move the player back one room.
  *
@@ -23,7 +24,7 @@ public class BackCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public BackCommand(RoomHandler handler) {
         this.player = handler.getInitialiser().getPlayer();
@@ -45,7 +46,7 @@ public class BackCommand implements Executable {
                 System.out.println("You cannot escape!");
                 return;
             }
-            //Remove the last element of the ArrayList (the room the player is currently in)
+            //Remove the element at the top of the stack (the room the player is currently in)
             accessedRooms.pop();
 
             //Moves the player back one room

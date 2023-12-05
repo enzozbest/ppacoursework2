@@ -17,5 +17,4 @@ public class GameMain {
         WhiteSouls whiteSouls = new WhiteSouls();
         whiteSouls.play();
     }
-
 }

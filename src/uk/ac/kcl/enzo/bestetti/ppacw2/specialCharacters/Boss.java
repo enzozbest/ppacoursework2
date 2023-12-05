@@ -10,8 +10,8 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.Item;
  * Different bosses can have different names, IDs, and health.
  * <p>
  * Bosses "attack" the player by issuing time challenges. The player has a limited amount of time to attack back.
- * If there is a counter-attack by the player, the countdown is interrupted and the boss loses some health.
- * Otherwise, the player loses and the game is finished. The player has lost and all progress is also lost.
+ * If there is a counter-attack by the player, the countdown is interrupted and the boss loses one health point.
+ * Otherwise, the player loses and the game ends. The player has lost and all progress is also lost.
  *
  * @author Enzo Bestetti(K23011872)
  * @version 2023.12.04
@@ -42,7 +42,7 @@ public class Boss {
     //GETTERS
 
     /**
-     * @return true if the boss is alive. False otherwise.
+     * @return true if the boss is alive, false otherwise.
      **/
     public boolean isBossAlive() {
         return isAlive;

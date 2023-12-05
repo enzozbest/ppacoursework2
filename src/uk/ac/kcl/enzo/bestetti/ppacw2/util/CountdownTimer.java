@@ -7,8 +7,8 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
  * This is done by running this class on a separate dedicated Thread.
  * This class implements Runnable in order for it to be able to run on a different thread to the main game.
  * Once called, the thread will sleep for the specified amount of time.
- * If this thread wakes up, the player did not issue a counter-attack and hence they lost. The game will exit.
- * If the player issues a counter-attack, this thread will be interrupted.
+ * If this thread wakes up, the player did not issue a counter-attack and hence they lost. The game will end in loss.
+ * If the player issues a counter-attack, this thread will be interrupted and the game is allowed to carry on.
  *
  * @author Enzo Bestetti(K23011872)
  * @version 2023.12.04

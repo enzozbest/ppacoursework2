@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 /**
  * This class is part of the "White Souls" application.
+ * <p>
  * This class is responsible for creating all rooms, items, bosses, and NPCs in the game.
  * All items, bosses, and NPCs are added to their respective initial rooms.
  * The Initialiser class also creates the Player object, as well as the global list of rooms.
@@ -127,6 +128,7 @@ public class Initialiser {
 
     /**
      * Add characters to the rooms in which they are located at the beginning of the game.
+     * Character dialogue is set at construction.
      **/
     private void addCharacters() {
         //Sad Soldier at Waterlink Well

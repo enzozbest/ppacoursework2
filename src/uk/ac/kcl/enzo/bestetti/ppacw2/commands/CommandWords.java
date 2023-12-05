@@ -25,7 +25,7 @@ public enum CommandWords {
     }
 
     /**
-     * @return a string representing the command word of a command.
+     * @return a string representing a command word.
      **/
     public String getCommandString() {
         return commandString;

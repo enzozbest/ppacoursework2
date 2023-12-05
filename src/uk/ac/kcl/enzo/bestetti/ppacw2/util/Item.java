@@ -51,35 +51,35 @@ public class Item {
     }
 
     /**
-     * @return id.
+     * @return item id.
      **/
     public int getId() {
         return id;
     }
 
     /**
-     * @return weight.
+     * @return item weight.
      **/
     public double getWeight() {
         return weight;
     }
 
     /**
-     * @return durability.
+     * @return item durability.
      **/
     public int getDurability() {
         return durability;
     }
 
     /**
-     * @return consumable.
+     * @return true if the item can be used; false otherwise.
      **/
     public boolean isUseable() {
         return isUseable;
     }
 
     /**
-     * @return isKey.
+     * @return true if the item is a key, false otherwise.
      **/
     public boolean isKey() {
         return isKey;
