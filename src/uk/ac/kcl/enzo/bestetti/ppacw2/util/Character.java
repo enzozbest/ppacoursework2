@@ -12,7 +12,7 @@ import java.util.Arrays;
  * NPCs are free to move around AFTER their first encounter with the player.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class Character {
 
@@ -25,16 +25,14 @@ public class Character {
     //ATTRIBUTES
 
     /**
-     * Create a character object
+     * Create a character object.
      *
      * @param name           to indicate what the character is called
-     * @param health         specifies how much health a character has
      * @param giveable       specifies an Item which is given to the player by the character. This may be null.
      * @param dialogueString details the sentences in the character's dialogue
      * @param moveSet        keeps track of the character movements in relation to the NPC's movements.
      **/
-    public Character(String name, double health, Item giveable, String dialogueString, String moveSet) {
-
+    public Character(String name, Item giveable, String dialogueString, String moveSet) {
         this.name = name;
         this.dialogue = new ArrayList<>();
         this.giveable = giveable;
@@ -45,7 +43,7 @@ public class Character {
     }
 
     /**
-     * @return the NPC's name
+     * @return the NPC's name.
      **/
     public String getName() {
         return name;
@@ -53,8 +51,8 @@ public class Character {
 
 
     /**
-     * This method extracts the sentences from the main dialouge String passed a construction and adds them to an ArrayList.
-     * The sentences are later used to display a character's dialogue
+     * This method extracts the sentences from the main dialogue String passed a construction and adds them to an ArrayList.
+     * The sentences are later used to display a character's dialogue.
      **/
     public void createDialgoue(String dialogueString) {
         String[] sentences = dialogueString.split(" : "); // Dialogue is passed as one string containing multiple sentences. The expression " : " separates sentences
@@ -79,7 +77,7 @@ public class Character {
     }
 
     /**
-     * @return true if the player has never talked to this NPC; false otherwise
+     * @return true if the player has never talked to this NPC; false otherwise.
      **/
     public boolean isFirstEncounter() {
         return this.firstEncounter;

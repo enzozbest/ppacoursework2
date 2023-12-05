@@ -7,7 +7,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
  * The main purpose of this class is to serve as a mediator between other classes and the Character class.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class CharacterHandler {
 
@@ -63,6 +63,7 @@ public class CharacterHandler {
             if (!((roomHandler.getInitialiser().getPlayer().getCurrentWeight() + character.getGiveable().getWeight()) > roomHandler.getInitialiser().getPlayer().getMaxWeight())) {
                 roomHandler.getInitialiser().getPlayer().getInventory().put(character.getGiveable().getName().toLowerCase(), character.getGiveable());
                 roomHandler.getInitialiser().getPlayer().setCurrentWeight(roomHandler.getInitialiser().getPlayer().getCurrentWeight() + character.getGiveable().getWeight());
+                return;
             }
             roomHandler.getInitialiser().getPlayer().getCurrentRoom().getItems().put(character.getGiveable().getName().toLowerCase(), character.getGiveable());
             System.out.println("You were not strong enough to hold " + character.getGiveable().getName() + " so it has fallen on the floor.");

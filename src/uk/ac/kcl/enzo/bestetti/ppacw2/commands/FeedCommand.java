@@ -14,7 +14,7 @@ import java.util.HashMap;
  * The main responsibility of this class is to feed an Imperial Soul to the Lordbucket to allow for game progression.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class FeedCommand implements Executable {
 
@@ -27,7 +27,7 @@ public class FeedCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public FeedCommand(Command command, RoomHandler roomHandler) {
         this.roomHandler = roomHandler;

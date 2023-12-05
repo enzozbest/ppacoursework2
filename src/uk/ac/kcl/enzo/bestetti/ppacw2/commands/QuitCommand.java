@@ -7,7 +7,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
  * Here we check that the player really wants to quit the game. If so, we quit. Otherwise, we carry on.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class QuitCommand implements Executable {
 
@@ -17,7 +17,7 @@ public class QuitCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public QuitCommand(Command command) {
         this.wantToQuit = false;
@@ -39,7 +39,7 @@ public class QuitCommand implements Executable {
     }
 
     /***
-     * @return true, if this command quits the game, false otherwise.
+     * @return true if this command quits the game, false otherwise.
      **/
     public boolean quit() {
         return wantToQuit;

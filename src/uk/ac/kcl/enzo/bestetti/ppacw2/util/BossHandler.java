@@ -12,11 +12,11 @@ import java.util.Random;
  * who needs to attack (player attack).
  * The player attack interrupts the time challenge and decreases the boss health by 1 point. This process repeats until the boss dies.
  * <p>
- * If the player fails to issue an attack within the specified time period, the game is lost and we end the game in player loss.
+ * If the player fails to issue an attack within the specified time period, the game is lost, and we end the game in player loss.
  * If the boss is defeated by the player, an item is added to the room where the boss was and the player can pick it up.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class BossHandler {
 
@@ -28,8 +28,8 @@ public class BossHandler {
     //ATTRIBUTES
 
     /**
-     * Checks if the room the player has entered has a boss. If not, we stop the creation of the BossHandler object.
-     * Otherwise we retrieve the boss information from the RoomHandler.
+     * Check if the room the player has entered has a boss. If not, we stop the creation of the BossHandler object.
+     * Otherwise, we retrieve the boss information from the RoomHandler.
      *
      * @param roomHandler
      **/
@@ -43,8 +43,9 @@ public class BossHandler {
     }
 
     /**
-     * Check if the current boss "alive" state is set to true or false.
+     * Check if the current boss' "alive" state is set to true or false.
      * If the boss is dead, print out the victory message and drop item.
+     * If the boss is alive, return to the normal execution of the boss fight.
      *
      * @return true if the boss is still alive. False otherwise.
      **/
@@ -72,7 +73,7 @@ public class BossHandler {
      * Start a time challenge.
      * A random number between 0 and 3 (inclusive) is generated and this determines the amount the time the player will have
      * to counter-attack the boss.
-     * If the player does so, the time-challenge is over and the boss-fight continues.
+     * If the player does so, the time challenge is over and the boss fight continues.
      * Otherwise, the player loses and the game ends.
      **/
     public void dealDamage() {
@@ -106,9 +107,9 @@ public class BossHandler {
      * Register a player counter-attack to a boss attack.
      * Interrupt the count-down timer Thread.
      *
-     * @throws InterruptedException which is handled by the interrupted thread.
+     * @throws NullPointerException which is handled here as well.
      **/
-    public void playerAttack() {
+    public void playerAttack() throws NullPointerException {
         try {
             countdown.interrupt();//Interrupts the countdown thread, i.e. player has attacked -> cancel boss attack.
         } catch (NullPointerException e) {

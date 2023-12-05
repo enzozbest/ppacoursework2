@@ -7,10 +7,10 @@ import uk.ac.kcl.enzo.bestetti.ppacw2.util.RoomHandler;
  * This class is part of the "White Souls" application.
  * <p>
  * It represents an action that can be executed by the CommandExecutor class.
- * The main responsibility of this class is to allow the player to place the Lordbucket in Waterlink Altar
+ * The main responsibility of this class is to allow the player to place the Lordbucket in Waterlink Altar.
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class PlaceCommand implements Executable {
 
@@ -21,7 +21,7 @@ public class PlaceCommand implements Executable {
     //ATTRIBUTES
 
     /**
-     * Initialise variables needed in the class
+     * Initialise variables needed in the class.
      **/
     public PlaceCommand(Command command, RoomHandler handler) {
         this.roomHandler = handler;
@@ -64,6 +64,6 @@ public class PlaceCommand implements Executable {
         System.out.println("You have placed the Lordbucket at Waterlink Altar");
         System.out.println("The power of the Lordbucket has granted you access to some previously locked rooms.");
         System.out.println("You must now find the Imperial Souls to feed the Lordbucket. Good luck!");
-        System.out.println("Succeed the great Lord Aluns, replenish the First Droplet, and break the Dryman curse!");
+        System.out.println("Succeed the great Lord Alun, replenish the First Droplet, and break the Dryman curse!");
     }
 }

@@ -3,7 +3,6 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.util;
 import uk.ac.kcl.enzo.bestetti.ppacw2.base.Initialiser;
 import uk.ac.kcl.enzo.bestetti.ppacw2.specialCharacters.Player;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
@@ -16,11 +15,11 @@ import java.util.Set;
  * An instance of the global list of rooms can be obtained from this handler, as well as an instance of the player (this room uses the Initialiser,
  * which creates the player object).
  * <p>
- * It also keeps track of the rooms accessed by the player, which is implemented as an ArrayList.
+ * It also keeps track of the rooms accessed by the player, which is implemented as a last-in-first-out stack.
  * Other classes use this to implement some game features, e.g. the "back" command
  *
  * @author Enzo Bestetti(K23011872)
- * @version 2023.12.01
+ * @version 2023.12.04
  **/
 public class RoomHandler {
 
@@ -29,7 +28,7 @@ public class RoomHandler {
     private boolean lordBucket;
     private BossHandler bossHandler;
     private Initialiser initialiser;
-    private ArrayList<Room> accessedRooms = new ArrayList<>();
+    private ArrayLifoStack<Room> accessedRooms = new ArrayLifoStack<>();
     //ATTRIBUTES
 
     /**
@@ -44,9 +43,9 @@ public class RoomHandler {
     }
 
     /**
-     * Check whether the player entered a special room that requires a certain item or wearable for passage, or if they should be teletransported.
+     * Check whether the player entered a special room that requires a certain item or wearable for passage, or if they should be teleported.
      * If the player has entered a special room but does not meet the entrance criteria, the game ends in loss.
-     * If the player did enter the Chamber of the Princess, they will be teleported.
+     * If the player entered the Chamber of the Princess, they will be teleported.
      *
      * @return true if the player has been teleported. False otherwise.
      **/
@@ -127,7 +126,6 @@ public class RoomHandler {
         return false;
     }
 
-
     /**
      * Check if the player has an item equipped.
      *
@@ -148,7 +146,6 @@ public class RoomHandler {
      * @param nextRoomID denoting the ID of the player has moved into.
      **/
     public void moveCharacters(int nextRoomID) {
-
         player.getCurrentRoom().getPeople().forEach((c, i) -> (new CharacterHandler(this)).move(nextRoomID, i));
         player.getCurrentRoom().removeCharacters();
     }
@@ -185,7 +182,7 @@ public class RoomHandler {
 
     /**
      * Change the isLocked flag of all rooms (apart from Source of the First Droplet) to true.
-     * Allow the player to visit all rooms
+     * Allow the player to visit all rooms but the Source of the First Droplet and Mineral Mines.
      **/
     private void unlockGoldgates() {
         Set<Integer> keys = initialiser.getRooms().keySet();
@@ -209,16 +206,16 @@ public class RoomHandler {
     //GETTERS
 
     /**
-     * Check wether the Lordbucket has been placed
+     * Check whether the Lordbucket has been placed.
      *
-     * @return lordbuclet
+     * @return tue if the Lordbucket has been placed, false otherwise.
      **/
     public boolean isLordbucket() {
         return lordBucket;
     }
 
     /**
-     * @return the global list of rooms
+     * @return the global list of rooms.
      **/
     public HashMap<Integer, Room> getRooms() {
         return initialiser.getRooms();
@@ -232,17 +229,17 @@ public class RoomHandler {
     }
 
     /**
-     * @return the list of rooms accessed by the player
-     **/
-    public ArrayList<Room> getAccessedRooms() {
-        return accessedRooms;
-    }
-
-    /**
      * @return the BossHandler for a boss fight.
      **/
     public BossHandler getBossHandler() {
         return bossHandler;
+    }
+
+    /**
+     * @return the global list of accessed rooms as a last-in-first-out stack.
+     **/
+    public ArrayLifoStack<Room> getAccessedRooms() {
+        return accessedRooms;
     }
     //GETTERS
 
