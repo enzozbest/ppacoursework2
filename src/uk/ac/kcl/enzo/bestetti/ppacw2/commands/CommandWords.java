@@ -14,7 +14,7 @@ package uk.ac.kcl.enzo.bestetti.ppacw2.commands;
 public enum CommandWords {
     GO("go"), QUIT("quit"), HELP("help"), ATTACK("attack"), PLACE("place"),
     TALK("talk"), PICKUP("pickup"), DROP("drop"), USE("use"), BACK("back"),
-    INVENTORY("inventory"), REPLENISH("replenish"), MAP("map"), FEED("feed"), UNKNOWN(null);
+    INVENTORY("inventory"), REPLENISH("replenish"), MAP("map"), FEED("feed");
     private String commandString;
 
     CommandWords(String commandWord) {

@@ -41,7 +41,7 @@ public class Initialiser {
      * All items in rooms are set at construction of the rooms.
      **/
     private void createRooms() {
-        waterlinkWell = new Room("Waterlink Well", 0, "Waterlink Well - Start of the Chosen Dryman's journey", false, "White Soul,0,0.25,1,true,false : Sword,1,0.5,100,true,false");
+        waterlinkWell = new Room("Waterlink Well", 0, "Waterlink Well - Start of the Chosen Dryman's journey", false, "White Soul,0,0.25,1,true,false : Sword,1,0.5,100,false,false");
         rooms.put(0, waterlinkWell);
         drymanBurg = new Room("Dryman Burg", 1, "Dryman Burg - Make your way through to the Drenched Oasis.", false, "Merchant Table,1,1000,0,false,false");
         rooms.put(1, drymanBurg);
