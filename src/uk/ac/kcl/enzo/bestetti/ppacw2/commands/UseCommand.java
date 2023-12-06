@@ -78,7 +78,7 @@ public class UseCommand implements Executable {
         switch (item.getId()) {
             case 0 -> {
                 player.updateMaxWeight();
-                System.out.println("The power of the Whtie Soul has granted you extra strength!");
+                System.out.println("The power of the White Soul has granted you extra strength!");
             }
             case 3 ->
                     System.out.println("You are trying to eat the Kraken Tail. Please note, this is a weapon, not food!");
